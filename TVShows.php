@@ -1,23 +1,4 @@
-<?php include "includes/password_protect.php";?>
-<?php include "includes/abovecss.php";?>
-<head>
-<?php include "includes/css.php";?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-</head>
-<Body>
-<?php include "includes/menubar.php"; ?>
-<center><h1>TV Shows</h1></center>
-<?php
-//$dir should be the folder holding video files, relative to this page
-$dir    = 'videos';
-//scandir populates an array with all files in the $dir directory
-$array_of_dir = scandir($dir);
-//Get the size of the directory array for use in loop
-$dir_array_size = sizeof($array_of_dir);
-//clears blank lines(folders) in array - change to 1 or 0 to see why.
-$x=2;
-//dir passes the directory selected to seasons.php
 while ($x < ($dir_array_size) ){
 
 //Check for local series .xml file.  
