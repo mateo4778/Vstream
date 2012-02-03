@@ -1,0 +1,346 @@
+body
+{
+	background-image:url('/images/darth_stripe.png');
+}
+
+@font-face {font-family:sansation; src: url('/fonts/Sansation_Regular.ttf');}
+@font-face {font-family:pointy; src: url('/fonts/pointy_demo.ttf');}
+@font-face {font-family:bevan; src: url('/fonts/Bevan.ttf');}
+
+
+p {color:white; font-family:Helvetica; font-size:16px; text-decoration: none; line-height: 24px;}
+a {color:white; font-family:Helvetica; font-size:20px; text-decoration: none;}
+img {position:relative; z-index: 4;}
+
+
+h1
+{
+	color:white; font-family:pointy; font-size:50px; text-align:center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
+	margin:40px 0px;
+    position: relative;
+}
+
+
+h2#small {
+font-size:35px; 	
+color:white; 
+font-family:pointy; 
+text-align:center;
+text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
+margin:40px 0px;
+}
+
+/
+
+
+
+
+/*	--------------------------------------------------
+	Buttons
+	-------------------------------------------------- */
+
+	.button {
+		background: #00a6fc;
+		display: inline-block;
+		text-align: center;
+		padding: 9px 34px 11px;
+		color: #fff;
+		text-decoration: none;
+		font-weight: bold;
+		line-height: 1;
+		font-family: "Helvetica Neue", "Helvetica", Arial, Verdana, sans-serif;
+		position: relative;
+		cursor: pointer;
+		border: none;
+	}
+	
+  	/* Don't use native buttons on iOS */
+	input[type=submit].button { -webkit-appearance: none; }
+	
+	.button.nice { 
+		background: #00a6fc url(../images/misc/button-gloss.png) repeat-x 0 -34px;
+		-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
+		-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
+		text-shadow: 0 -1px 1px rgba(0,0,0,0.28);
+		background: #00a6fc url(../images/misc/button-gloss.png) repeat-x 0 -34px, -moz-linear-gradient(top, rgba(255,255,255,.4) 0%, transparent 100%);
+		background: #00a6fc url(../images/misc/button-gloss.png) repeat-x 0 -34px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,.4)), color-stop(100%,transparent));
+		border: 1px solid #0593dc;
+		-webkit-transition: background-color .15s ease-in-out;
+		-moz-transition: background-color .15s ease-in-out;
+		-o-transition: background-color .15s ease-in-out;
+	}
+
+	.button.radius {
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+	}
+	.button.round {
+		-moz-border-radius: 1000px;
+		-webkit-border-radius: 1000px;
+		border-radius: 1000px;
+	}
+
+	.button.full-width {
+		width: 100%;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		text-align: center;
+	}
+
+	.button.left-align {
+		text-align: left;
+		text-indent: 12px;
+	}
+	
+	/* Sizes ---------- */
+	.small.button 			{ font-size: 11px; padding: 8px 20px 10px; width: auto; }
+	.medium.button 			{ font-size: 13px; width: auto; }
+	.large.button 			{ font-size: 18px; padding: 11px 48px 13px; width: auto; }
+
+	/* Nice Sizes ---------- */
+	.nice.small.button 		{ background-position: 0 -36px; }
+	.nice.large.button 		{ background-position: 0 -30px; }
+
+	/* Colors ---------- */
+	.blue.button			{ background-color: #00a6fc;  }
+	.red.button				{ background-color: #e91c21; }
+	.white.button			{ background-color: #e9e9e9; color: #333; }
+	.black.button			{ background-color: #141414; }
+	
+	/* Nice Colors ---------- */
+	.nice.blue.button		{ border: 1px solid #0593dc;  }
+	.nice.red.button		{ border: 1px solid #b90b0b;  }
+	.nice.white.button		{ border: 1px solid #cacaca; text-shadow: none !important; }
+	.nice.black.button		{ border: 1px solid #000; }
+	
+	/* Hovers ---------- */
+	.button:hover, .button:focus 				{ background-color: #0192dd; color: #fff; }
+	.blue.button:hover, .blue.button:focus		{ background-color: #0192dd; 	}
+	.red.button:hover, .red.button:focus 		{ background-color: #d01217; 	}
+	.white.button:hover, .white.button:focus	{ background-color: #dadada; color: #333; }
+	.black.button:hover, .black.button:focus	{ background-color: #000; }
+	
+	/* Disabled ---------- */
+	.button.disabled, .button[disabled] { opacity: 0.6; cursor: default; }
+
+
+
+/*	--------------------------------------------------
+	Alerts
+	-------------------------------------------------- */
+
+	div.alert-box { display: block; padding: 6px 7px; font-weight: bold; font-size: 13px; background: #eee; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 12px; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; text-shadow: 0 1px rgba(255,255,255,0.9); position: relative; }
+	.alert-box.success { background-color: #7fae00; color: #fff; text-shadow: 0 -1px rgba(0,0,0,0.3); }
+	.alert-box.warning { background-color: #c08c00; color: #fff; text-shadow: 0 -1px rgba(0,0,0,0.3); }
+	.alert-box.error { background-color: #c00000; color: #fff; text-shadow: 0 -1px rgba(0,0,0,0.3); }
+	
+	.alert-box a.close { color: #000; position: absolute; right: 4px; top: 0; font-size: 18px; opacity: 0.2; padding: 4px; }
+	.alert-box a.close:hover,.alert-box a.close:focus { opacity: 0.4; }
+
+
+/*    --------------------------------------------------
+    Tabs
+    -------------------------------------------------- */
+
+
+
+*/
+/* --------------------------------------------------
+	:: Typography
+	-------------------------------------------------- */
+	
+	@media handheld, only screen and (max-width: 767px) {
+		h1 { font-size: 32px; font-size: 3.2rem; line-height: 1.3; }
+		h2 { font-size: 28px; font-size: 2.8rem; line-height: 1.3; }
+		h3 { font-size: 21px; font-size: 2.1rem; line-height: 1.3; }
+		h4 { font-size: 18px; font-size: 1.8rem; line-height: 1.2; }
+		h5 { font-size: 16px; font-size: 1.6rem; line-height: 1.2; }
+		h6 { font-size: 15px; font-size: 1.5rem; line-height: 1.2; }
+		body, p {  font-size: 15px; font-size: 1.5rem; line-height: 1.4; }
+	}
+
+
+/* --------------------------------------------------
+	:: Grid
+	-------------------------------------------------- */
+	
+	/* Tablet screens */
+	@media only screen and (device-width: 768px), (device-width: 800px) {
+		/* Currently unused */
+	}
+	
+	
+	/* Mobile */
+	@media only screen and (max-width: 767px) {		
+		body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; width: 100%; min-width: 0; margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; }
+		.container { min-width: 0; margin-left: 0; margin-right: 0; }
+		.row { width: 100%; min-width: 0; margin-left: 0; margin-right: 0; }
+		.row .row .column, .row .row .columns { padding: 0; }
+		.column, .columns { width: auto !important; float: none; margin-left: 0; margin-right: 0; }
+		.column:last-child, .columns:last-child { margin-right: 0; }
+		
+		.offset-by-one, .offset-by-two, .offset-by-three, .offset-by-four, .offset-by-five, .offset-by-six, .offset-by-seven, .offset-by-eight, .offset-by-nine, .offset-by-ten, .offset-by-eleven, .centered { margin-left: 0 !important; }
+		
+		.push-two, .push-three, .push-four, .push-five, .push-six, .push-seven, .push-eight, .push-nine, .push-ten { left: auto; }
+		.pull-two, .pull-three, .pull-four, .pull-five, .pull-six, .pull-seven, .pull-eight, .pull-nine, .pull-ten { right: auto; }
+		
+		/* Mobile 4-column Grid */
+		.row .phone-one.column:first-child, .row .phone-two.column:first-child, .row .phone-three.column:first-child, .row .phone-four.column:first-child, .row .phone-one.columns:first-child, .row .phone-two.columns:first-child, .row .phone-three.columns:first-child, .row .phone-four.columns:first-child { margin-left: 0; }
+		
+		.row .phone-one.column, .row .phone-two.column, .row .phone-three.column, .row .phone-four.column,
+		.row .phone-one.columns, .row .phone-two.columns, .row .phone-three.columns, .row .phone-four.columns { margin-left: 4.4%; float: left; min-height: 1px; position: relative; padding: 0; }
+		
+		.row .phone-one.columns 	{ width: 21.68% !important; }
+		.row .phone-two.columns 	{ width: 47.8% !important; }
+		.row .phone-three.columns 	{ width: 73.9% !important; }
+		.row .phone-four.columns 	{ width: 100% !important; }
+		
+		.row .columns.push-one-phone { left: 26.08%; }
+		.row .columns.push-two-phone { left: 52.2% }
+		.row .columns.push-three-phone { left: 78.3% }
+		
+		.row .columns.pull-one-phone { right: 26.08% }
+		.row .columns.pull-two-phone { right: 52.2% }
+		.row .columns.pull-three-phone { right: 78.3%; }
+		
+		
+	}
+	
+	
+/* --------------------------------------------------
+	:: Block Grids
+	-------------------------------------------------- */	
+	
+	@media only screen and (max-width: 767px) {
+		.block-grid.mobile { margin-left: 0; }
+		.block-grid.mobile li { float: none; width: 100%; margin-left: 0; }
+	}
+	
+	
+
+/* -------------------------------------------------- 
+	:: Mobile Visibility Affordances
+---------------------------------------------------*/
+	
+	
+	.show-on-phones { display: none !important; }	
+	.show-on-tablets { display: none !important; }
+	.show-on-desktops { display: block !important; }
+	
+	.hide-on-phones { display: block !important; }	
+	.hide-on-tablets { display: block !important; }
+	.hide-on-desktops { display: none !important; }
+	
+	
+	@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px) {
+		.hide-on-phones { display: block !important; }
+		.hide-on-tablets { display: none !important; }
+		.hide-on-desktops { display: block !important; }
+		
+		.show-on-phones { display: none !important; }
+		.show-on-tablets { display: block !important; }
+		.show-on-desktops { display: none !important; }
+	}
+	
+		
+	@media only screen and (max-width: 767px) {
+		.hide-on-phones { display: none !important; }
+		.hide-on-tablets { display: block !important; }
+		.hide-on-desktops { display: block !important; }
+		
+		.show-on-phones { display: block !important; }
+		.show-on-tablets { display: none !important; }
+		.show-on-desktops { display: none !important; }
+	}
+	
+	/* only screen and (device-width: 1280px), only screen and (max-device-width: 1280px),  /*
+	/* Keeping this in as a reminder to address support for other tablet devices like the Xoom in the future */
+	
+	/* Specific overrides for elements that require something other than display: block */
+	
+	table.show-on-desktops { display: table !important; }
+	table.hide-on-phones { display: table !important; }	
+	table.hide-on-tablets { display: table !important; }
+	
+	@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px) {
+		table.hide-on-phones { display: block !important; }
+		table.hide-on-desktops { display: block !important; }
+		table.show-on-tablets { display: block !important; }
+	}
+	
+	@media only screen and (max-width: 767px) {
+		table.hide-on-tablets { display: block !important; }
+		table.hide-on-desktops { display: block !important; }
+		table.show-on-phones { display: block !important; }
+	}
+	
+	
+/* -------------------------------------------------- 
+	:: Forms
+---------------------------------------------------*/	
+
+
+	@media only screen and (max-width: 767px) {
+		div.form-field input, div.form-field input.small, div.form-field input.medium, div.form-field input.large, div.form-field input.oversize, input.input-text, input.input-text.oversize, textarea,
+		form.nice div.form-field input, form.nice div.form-field input.oversize, form.nice input.input-text, form.nice input.input-text.oversize, form.nice textarea { display: block; width: 96%; padding: 6px 2% 4px; font-size: 18px; }
+		form.nice div.form-field input, form.nice div.form-field input.oversize, form.nice input.input-text, form.nice input.input-text.oversize, form.nice textarea { -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+		form.nice div.form-field.error small, form.nice small.error { padding: 6px 2%; display: block; }
+		form.nice div.form-field.error .small + small, form.nice .small + .error { width: auto; }
+		form.nice div.form-field.error .medium + small, form.nice .medium + .error { width: auto; }
+		form.nice div.form-field.error .large + small, form.nice .large + .error { width: auto; }
+	}
+	
+	
+/* -------------------------------------------------- 
+	:: UI
+---------------------------------------------------*/	
+	
+	/* Buttons */
+	@media only screen and (max-width: 767px) {
+		.button { display: block; }
+		button.button { width: 100%; padding-left: 0; padding-right: 0; }
+	}
+	
+	/* Tabs */
+	
+	@media only screen and (max-width: 767px) {
+		dl.tabs.mobile, dl.nice.tabs.mobile { width: auto; margin: 20px -20px 40px; height: auto; }
+		dl.tabs.mobile dt, dl.tabs.mobile dd, dl.nice.tabs.mobile dt, dl.nice.tabs.mobile dd { float: none; height: auto; }
+
+		dl.tabs.mobile dd a { display: block; width: auto; height: auto; padding: 18px 20px; line-height: 1; border: solid 0 #ccc; border-width: 1px 0 0; margin: 0; color: #555; background: #eee; font-size: 15px; font-size: 1.5rem; }
+		dl.tabs.mobile dd a.active { height: auto; margin: 0; border-width: 1px 0 0; }
+	
+		.nice.tabs.mobile { border-bottom: solid 1px #ccc; height: auto; }
+		.nice.tabs.mobile dd a { padding: 18px 20px; border: none; border-left: none; border-right: none; border-top: 1px solid #ccc; background: #fff; }
+		.nice.tabs.mobile dd a.active { border: none; background: #00a6fc; color: #fff; margin: 0; position: static; top: 0; height: auto; }
+		.nice.tabs.mobile dd:first-child a.active { margin: 0; }
+		
+		dl.contained.mobile, dl.nice.contained.mobile { margin-bottom: 0; }
+		dl.contained.tabs.mobile dd a { padding: 18px 20px; }
+		dl.nice.contained.tabs.mobile dd a { padding: 18px 20px; }
+	}
+	
+	/* Nav Bar */
+
+	@media only screen and (max-width: 767px) {
+		.nav-bar { height: auto; }
+		.nav-bar>li { float: none; display: block; border-right: none; }
+		.nav-bar>li>a { text-align: left; border-top: 1px solid #ddd; border-right: none; } 
+		.nav-bar>li:first-child>a { border-top: none; }
+		.nav-bar>li.has-flyout>a:after { content: ""; width: 0; height: 0; border-left: 4px solid transparent;border-right: 4px solid transparent; border-top: 4px solid #2a85e8; display: block; }
+		.nav-bar>li:hover>a { font-weight: bold; }
+		.nav-bar>li:hover ul { position: relative; }
+		
+		.flyout { position: relative; width: auto; top: auto; margin-right: -2px; border-width: 1px 1px 0px 1px; }
+		.flyout.right { float: none; right: auto; left: -1px; }
+		.flyout.small, .flyout.large { width: auto; }
+		.flyout p:last-child { margin-bottom: 18px; }
+	}
+	
+	/* Nav Bar */
+	
+	@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+		.video { padding-top: 0; }
+	}

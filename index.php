@@ -3,10 +3,9 @@
 <head>
 <?php include "includes/css.php";?>
 
-
+	<?php include"includes/google.php"; ?>
 </head>
-<?php include"includes/css2.php"; 
-?>
+
 
 <Body>
 

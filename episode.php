@@ -3,10 +3,11 @@
 <head>
 <?php include "includes/css.php";?>
 
-
+	<?php include"includes/google.php"; ?>
 </head>
 <body>
 <?php include "includes/menubar.php"; ?>
+
 
 <?php 
 
@@ -25,6 +26,16 @@ $season_number=substr($episode_array[2],-1);
 }else { 
 $season_number=$episode_array[2];
 }
+//Print Season Title or series banner if available
+$season_title=explode("/",$episode);
+$banner ="videos"."/".$season_title[1]."/".$season_title[1].".jpg";
+
+if(file_exists($banner)){
+print "<center><h2>Season $season_title[2]</h2></center>";
+print "<center><img src=\"$banner\"></center>";
+						}else	{
+						print "<center><h2>$season_title[1] Season $season_title[2]</h2></center>";
+								}
 		
 //$dir should be the folder holding video files
 $dir    = "videos/".$series_name."/".$episode_array[2];
@@ -68,28 +79,44 @@ if ($pre_xml_check[2]=="encoding=\"UTF-8\"")	{
 		$episode_overview= $xml->Episode[0]->Overview;
 		$episode_rating= $xml->Episode[0]->Rating;
 		$episode_number=$xml->Episode[0]->EpisodeNumber;
-		$episode_id=$xml->Episode[0]->id;		}else{
+		$episode_id=$xml->Episode[0]->id;		
+			//Check for local episode image
+			//Define path to image
+			$local_image_path="videos/".$series_name."/".$episode_array[2]."/metadata/".$episode_number.".jpg";
+			//print $local_image_path."<br>";
+			if(!file_exists($local_image_path))	{
+			$episode_image_remote= $xml->Episode[0]->filename;
+			$remote_image_path="http://thetvdb.com/banners/".$episode_image_remote;
+			$image_data = file_get_contents($remote_image_path);
+			// Write the contents back to the file
+			file_put_contents($local_image_path, $image_data);	
+												}
+									//Print data to page
+									print "<div class=\"container\"><div class=\"row\"><h2>Episode ".$episode_number." - ".$episode_name."</h2>";
+									print "<dl class=\"tabs marg\"><dd><a href=\"#simple$x\" class=\"active\">Episode</a></dd>";
+									print "<dd><a href=\"#simple".$x."1\">Overview</a></dd></dl>";
+									//Note: X is printed in line to generate unique names for each display tab
+									
+									print "<ul class=\"tabs-content\">";
+									print "<li class=\"active\" id=\"simple".$x."Tab\"><p><a href="."player"."."."php?filename=".$episode."/".$array_of_dir[$x]."&preview=$local_image_path&episode=$episode_number><img src=$local_image_path></a><br><p></li>";
+									print "<li id=\"simple".$x."1Tab\"><p>".$episode_overview."</p></li></ul></div></div><br>";
+											
+												}else{
 											$episode_name=$array_of_dir[$x];
 											$episode_overview="Sorry but an error occured gathering information for this episode from thetvdb.com  Please try again shortly by refreshing this page";
 											unlink($episode_xml);
+									//Print data to page
+									print "<div class=\"container\"><div class=\"row\"><div class=\"eight columns contained textbox centered\">"."<a href="."player"."."."php?filename=".$episode."/".$array_of_dir[$x]."&preview=$local_image_path".$nice_button.">Episode".$episode_number.  " - ".$episode_name."</a><br>";
+									print "<div class=\"container\"><div class=\"row\"><h2>Episode ".$episode_number." - ".$episode_name."</h2>";
+									print "<dl class=\"tabs marg\"><dd><a href=\"#simple$x\" class=\"active\">Episode</a></dd>";
+									print "<dd><a href=\"#simple".$x."1\">Overview</a></dd></dl>";
+									
+									
+									print "<ul class=\"tabs-content\">";
+									print "<li class=\"active\" id=\"simple".$x."Tab\"><p><a href="."player"."."."php?filename=".$episode."/".$array_of_dir[$x]."&preview=$local_image_path&episode=$episode_number><img src=$local_image_path></a><br><p></li>";
+									print "<li id=\"simple".$x."1Tab\"><p>".$episode_overview."</p></li></ul></div></div><br>";
 													}
-	
-	//Check for local episode image
-		//Define path to image
-		$local_image_path="videos/".$series_name."/".$episode_array[2]."/metadata/".$episode_number.".jpg";
-		//print $local_image_path."<br>";
-		if(!file_exists($local_image_path))	{
-		$episode_image_remote= $xml->Episode[0]->filename;
-		$remote_image_path="http://thetvdb.com/banners/".$episode_image_remote;
-		$image_data = file_get_contents($remote_image_path);
-		// Write the contents back to the file
-		file_put_contents($local_image_path, $image_data);
-										}
-//Print data to page
-		print "<div class=\"container\"><div class=\"row\"><div class=\"eight columns contained textbox centered\"><a href="."player"."."."php?filename=".$episode."/".$array_of_dir[$x]."&preview=$local_image_path".$nice_button.">"."Episode".$episode_number.  " - ".$episode_name."</a><br>";
-		print "<img src=$local_image_path></a><br>";
-		print "<p>$episode_overview</p><br></div></div></div><br><br>";
-										
+					
 	$x=$x+1;
 								}						
 ?>

@@ -1,4 +1,23 @@
+<?php include "includes/password_protect.php";?>
+<?php include "includes/abovecss.php";?>
+<head>
+<?php include "includes/css.php";?>
 
+	<?php include"includes/google.php"; ?>
+</head>
+<Body>
+<?php include "includes/menubar.php"; ?>
+<center><h1>TV Shows</h1></center>
+<?php
+//$dir should be the folder holding video files, relative to this page
+$dir    = 'videos';
+//scandir populates an array with all files in the $dir directory
+$array_of_dir = scandir($dir);
+//Get the size of the directory array for use in loop
+$dir_array_size = sizeof($array_of_dir);
+//clears blank lines(folders) in array - change to 1 or 0 to see why.
+$x=2;
+//dir passes the directory selected to seasons.php
 while ($x < ($dir_array_size) ){
 
 //Check for local series .xml file.  
@@ -27,14 +46,7 @@ mkdir($add_dir1);
 		$seriesid= $xml->Series[0]->seriesid;
 		$overview= $xml->Series[0]->Overview;
 		$language= $xml->Series[0]->language;	
-													}else	{
-			Print "<p>Bad file - It's a trap!</p>";
-			$overview="Sorry, A problem occured while trying to access thetvdb.com  As a result the one time collection of information for this series could not occur.  Please try again in a few minutes";
-			unlink($series_xml);
-															}
-	//print "$array_of_dir[$x]".$pre_xml_check[2];	
-
-	//Check for local banner
+			//Check for local banner
 	$postername="videos/$array_of_dir[$x]/$array_of_dir[$x].jpg";
 	If(!file_exists($postername))	{
 		//If No Local copy of the bannar, Go get it
@@ -44,34 +56,37 @@ mkdir($add_dir1);
 		$getimage = file_get_contents("http://thetvdb.com/banners/".$remote_poster);
 		file_put_contents($putimage,$getimage);
 									}
+													}else	{
+			//Print "<p>Bad file - It's a trap!</p>";
+			$overview="Sorry, A problem occured while trying to access thetvdb.com  As a result the one time collection of information for this series could not occur.  Please try again in a few minutes";
+			$seriesname=$array_of_dir[$x];
+			unlink($series_xml);
+															}
+	//print "$array_of_dir[$x]".$pre_xml_check[2];	
+
+
 		
 //print information on to page	?>
 	<div class="container">
-		<div class="row textbox">
+	
 			<?php if($language=="en"){ ?>
-				<div class="six columns">
-				<a href="seasons.php?series=videos/<?php echo$array_of_dir[$x]?>&id=<?php echo$seriesid?>&xml_check=<?php echo$language?>" class="nice radius blue button"><?php echo$seriesname?></a> <br>
-				<img src="<?php echo $postername?>" class='margin' width="auto">
-				</div>
-				<div class="six columns">
-				<p class="neg"><?php echo $overview?></p>
-				
-				
-				
-				<!--PUT JQUERY SHOW HIDE HERE-->
-				
-				
-				
-				</div>
-		</div>
-	</div><br>
+			<h3></h3>
+				<dl class="tabs marg">
+					<dd><a href="#simple<?php echo $x;?>" class="active">Series</a></dd>
+					<dd><a href="#simple<?php echo $x."1";?>">Overview</a></dd>
+				</dl>
+
+				<ul class="tabs-content">
+					<li class="active" id="simple<?php echo $x."Tab";?>"><p><a href="seasons.php?series=videos/<?php echo$array_of_dir[$x]?>&id=<?php echo$seriesid?>&xml_check=<?php echo$language?>"><img src="<?php echo $postername?>" width="auto"></a><p></li>
+					<li id="simple<?php echo $x."1Tab";?>"><p><?php echo$overview?></p></li>
+				</ul>
+	
+	
+	</div>
 						<?php		}
 				else{ ?>
 					<a href="seasons.php?series=videos/<?php echo$array_of_dir[$x]?>&id=<?php echo$seriesid?>&xml_check=<?php echo$language?>" class="nice radius blue button"><?php echo$array_of_dir[$x]?></a> <br>
 					<img src="images/lue_banner.jpg" class='margin' width="auto">
-					<p><?php echo$overview?></p>
-			</div>
-		</div>
 	</div><br>
 							<?php	}
 								?>

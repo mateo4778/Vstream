@@ -1,0 +1,29 @@
+body
+{
+	background-image:url('/images/darkdenim3.png');
+}
+
+@font-face {font-family:sansation; src: url('/fonts/Sansation_Regular.ttf');}
+@font-face {font-family:pointy; src: url('/fonts/pointy_demo.ttf');}
+@font-face {font-family:bevan; src: url('/fonts/Bevan.ttf');}
+
+a {color:orange; font-family:Helvetica; font-size:18px; text-decoration: none;}
+p {color:white; font-family:Helvetica; font-size:16px; text-decoration: none; line-height:24px;}
+p.wrap {
+text-wrap:none;
+}
+
+img {position:relative;}
+
+
+h2{
+	color:#0186ba; font-family:Helvetica; font-size:30px; text-decoration: none;
+}
+
+h1
+{
+	color:white; font-family:pointy; font-size:50px; text-align:center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
+	margin:40px 0px;
+    position: relative;
+}

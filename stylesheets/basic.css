@@ -1,0 +1,122 @@
+
+/*---------Global Body standards------------*/
+body
+{
+	background-image:url('/images/darkdenim3.png');
+}
+
+body
+{
+	padding: 0;
+	margin: 0;
+}   
+section 
+{
+	display: block;
+} 
+
+
+
+/*---------Font getting and setting----------*/
+@font-face {font-family:sansation; src: url('/fonts/Sansation_Regular.ttf');}
+@font-face {font-family:pointy; src: url('/fonts/pointy_demo.ttf');}
+@font-face {font-family:bevan; src: url('/fonts/Bevan.ttf');}
+
+
+
+/*-----------Text Settings------------*/
+a {color:black; font-family:Helvetica; font-size:18px; text-decoration: none;}
+p {color:white; font-family:Helvetica; font-size:16px; text-decoration: none; line-height:24px;}
+
+h1
+{
+	color:white; font-family:pointy; font-size:50px; text-align:center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
+	margin:40px 0px;
+    position: relative;
+}
+
+h2{
+	color:white; font-family:Helvetica; font-size:26px; text-decoration: none; 
+}
+
+
+
+
+/*-----------Tab CSS info-------------*/
+.slidingDiv {
+    height:170px;
+    padding:20px;
+    margin-top:10px;
+    border-bottom:5px solid #3399FF;
+}
+.show_hide {
+    display:none;
+}
+
+dl.marg{
+margin-bottom:0px;
+}
+
+
+
+/*--------------Movie page Box + Animation--------*/
+.textbox2 {
+  background: #2B2B2B; 
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: -5px 5px 10px 10px #000;
+  -moz-box-shadow: -5px 5px 10px 10px #000;
+  box-shadow: -5px 5px 10px 3px #000;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 5px;
+  /*height: 80px; */
+  /*overflow: auto;*/
+  /*margin-left:10px;*/
+  margin-bottom:30px;
+  margin-left:30px;
+  width:320px;
+  height:515px;
+  float:left;
+  color:white;
+}
+
+.textbox2:hover
+{
+		background-color: #0186ba;
+        background-image: -moz-linear-gradient(#04acec,  #0186ba);
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#04acec), to(#0186ba));
+        background-image: -webkit-linear-gradient(#04acec, #0186ba);
+        background-image: -o-linear-gradient(#04acec, #0186ba);
+        background-image: -ms-linear-gradient(#04acec, #0186ba);
+        background-image: linear-gradient(#04acec, #0186ba);
+}
+
+img.size{
+width:320px;
+height:452px;
+}
+
+
+
+/*----------Slight Body drop shadow--------*/
+body:before
+{
+   content: "";
+   position: fixed;
+   top: -10px;
+   left: 0;
+   width: 100%;
+   height: 10px;
+   z-index: 100;
+   -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+   -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+   box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+   }
+
+
+
+
+
