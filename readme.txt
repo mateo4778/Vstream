@@ -1,0 +1,3 @@
+For basic installation instructions see installingVStream.pdf
+
+For more information go to www.vstream.me
