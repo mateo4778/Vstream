@@ -20,8 +20,22 @@
 <?php 	$filename = $_GET["filename"]; 
 		$preview = $_GET["preview"];
 		$episode= $_GET["episode"];
-		
+	
+
+//Print Season Title or series banner if available
+$season_title=explode("/",$filename);
+$banner ="videos"."/".$season_title[1]."/".$season_title[1].".jpg";
+
+if(file_exists($banner)){
+print "<center><h2>Season $season_title[2] Episode - $episode</h2></center>";
+print "<center><a href=\"TVShows.php\"><img src=\"$banner\"></a></center><br><br>";
+						}else	{
+						print "<center><h2>$season_title[1] Season $season_title[2]</h2> </center>";
+								}
+	
 ?>
+
+
 <?php
 //Break up filename for data
 $explode_filename=explode("/",$filename);
