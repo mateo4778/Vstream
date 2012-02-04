@@ -47,8 +47,7 @@ $dir_array_size = sizeof($array_of_dir);
 $x=2;
 
 while ($x < ($dir_array_size-1) ){ //-1 is a hack to remove metadata folder
-//Define image path
-$local_image_path="videos/".$series_name."/".$episode_array[2]."/metadata/".$episode_number.".jpg";
+
 //Define episode number
 	//Break apart episode grabbing out single digits
 	if(substr($array_of_dir[$x],-6,1) == "0"){
@@ -56,6 +55,9 @@ $local_image_path="videos/".$series_name."/".$episode_array[2]."/metadata/".$epi
 	}else 	{ 
 	$episode_number= substr($array_of_dir[$x],-6,2);
 			}
+//Define image path
+$local_image_path="videos/".$series_name."/".$episode_array[2]."/metadata/".$episode_number.".jpg";
+			
 //Check for local episode XML, grab if missing
 		//Define path to local XML	
 		$episode_xml="videos/".$series_name."/".$episode_array[2]."/metadata/".$episode_number.".xml";
