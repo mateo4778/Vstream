@@ -29,11 +29,7 @@ if (!file_exists($series_xml)) {
 	// Write the contents back to the file
 	file_put_contents($series_xml, $current);
 								}
-//generate required folders
-$add_dir1="videos/$array_of_dir[$x]/01";
-if (!file_exists($add_dir1)){
-mkdir($add_dir1);
-							}
+
 	
 
 	//Process Local XML files

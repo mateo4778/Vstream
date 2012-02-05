@@ -3,7 +3,7 @@
 <head>
 <?php include "includes/css.php";?>
 
-
+<?php include "includes/google.php";?>
 </head>
 <body>
 <?php include "includes/menubar.php"; ?>
@@ -32,9 +32,9 @@ $banner ="videos"."/".$season_title[1]."/".$season_title[1].".jpg";
 
 if(file_exists($banner)){
 print "<center><h2>Season $season_title[2]</h2></center>";
-print "<center><img src=\"$banner\"></center>";
+print "<center><img src=\"$banner\"></center><br>";
 						}else	{
-						print "<center><h2>$season_title[1] Season $season_title[2]</h2></center>";
+						print "<center><h2>$season_title[1] Season $season_title[2]</h2></center><br>";
 								}
 		
 //$dir should be the folder holding video files
@@ -48,6 +48,7 @@ $x=2;
 
 while ($x < ($dir_array_size-1) ){ //-1 is a hack to remove metadata folder
 
+
 //Define episode number
 	//Break apart episode grabbing out single digits
 	if(substr($array_of_dir[$x],-6,1) == "0"){
@@ -56,8 +57,7 @@ while ($x < ($dir_array_size-1) ){ //-1 is a hack to remove metadata folder
 	$episode_number= substr($array_of_dir[$x],-6,2);
 			}
 //Define image path
-$local_image_path="videos/".$series_name."/".$episode_array[2]."/metadata/".$episode_number.".jpg";
-			
+		$local_image_path="videos/".$series_name."/".$episode_array[2]."/metadata/".$episode_number.".jpg";
 //Check for local episode XML, grab if missing
 		//Define path to local XML	
 		$episode_xml="videos/".$series_name."/".$episode_array[2]."/metadata/".$episode_number.".xml";
@@ -111,7 +111,6 @@ if ($pre_xml_check[2]=="encoding=\"UTF-8\"")	{
 											unlink($local_image_path);
 											//Print data to page
 											print "<div class=\"container\"><div class=\"row\"><div class=\"eight columns contained textbox centered\"><a href="."player"."."."php?filename=".$episode."/".$array_of_dir[$x]."&preview=$local_image_path".$nice_button.">"."Episode".$episode_number.  " - ".$episode_name."</a><br>";
-											print "<img src=$local_image_path></a><br>";
 											print "<p>$episode_overview</p><br></div></div></div><br><br>";
 													}
 					
