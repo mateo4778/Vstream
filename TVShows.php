@@ -1,13 +1,21 @@
-<?php include "includes/password_protect.php";?>
+
 <?php include "includes/abovecss.php";?>
 <head>
+ 
+
 <?php include "includes/css.php";?>
 
 	<?php include"includes/google.php"; ?>
 </head>
 <Body>
+
 <?php include "includes/menubar.php"; ?>
 <center><h1>TV Shows</h1></center>
+
+<div id="TV-series-list">
+                        <input class="search" placeholder="Search" />
+ 
+						 <ul class="list">
 <?php
 //$dir should be the folder holding video files, relative to this page
 $dir    = 'videos';
@@ -60,28 +68,27 @@ if (!file_exists($series_xml)) {
 															}
 	//print "$array_of_dir[$x]".$pre_xml_check[2];	
 
-
 		
 //print information on to page	?>
 	<div class="container">
 	
 			<?php if($language=="en"){ ?>
-			<h3></h3>
 				<dl class="tabs marg">
-					<dd><a href="#simple<?php echo $x;?>" class="active">Series</a></dd>
+					<dd><a href="#simple<?php echo $x;?>" class="active"><span class="name"><?php echo $seriesname?></span></a></dd>
 					<dd><a href="#simple<?php echo $x."1";?>">Overview</a></dd>
 				</dl>
 
 				<ul class="tabs-content">
+					
 					<li class="active" id="simple<?php echo $x."Tab";?>"><p><a href="seasons.php?series=videos/<?php echo$array_of_dir[$x]?>&id=<?php echo$seriesid?>&xml_check=<?php echo$language?>"><img src="<?php echo $postername?>" width="auto"></a><p></li>
-					<li id="simple<?php echo $x."1Tab";?>"><p><?php echo$overview?></p></li>
+					<li id="simple<?php echo $x."1Tab";?>"><p class="description"><?php echo$overview?></p></li>
 				</ul>
 	
 	
 	</div>
 						<?php		}
 				else{ ?>
-					<a href="seasons.php?series=videos/<?php echo$array_of_dir[$x]?>&id=<?php echo$seriesid?>&xml_check=<?php echo$language?>" class="nice radius blue button"><?php echo$array_of_dir[$x]?></a> <br>
+					<a href="seasons.php?series=videos/<?php echo$array_of_dir[$x]?>&id=<?php echo$seriesid?>&xml_check=<?php echo$language?>" class="nice radius blue button"><span class="name"><?php echo$array_of_dir[$x]?></span></a> <br>
 					<img src="images/lue_banner.jpg" class='margin' width="auto">
 	</div><br>
 							<?php	}
@@ -92,5 +99,21 @@ if (!file_exists($series_xml)) {
 $x = $x+1;	
 } 
 ?>
+</ul>
+</div>
+    <script type="text/javascript">
+            
+        /* 
+        * Series Name/Description
+        */
+        
+        var options = {
+    	    valueNames: [ 'name', 'description']
+        };
+
+        var featureList = new List('TV-series-list', options);
+        
+
+    </script>
 </body>
 </html>

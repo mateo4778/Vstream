@@ -23,6 +23,9 @@
 	<!-- Included JS Files -->
 	<script src="javascripts/foundation.js"></script>
 	<script src="javascripts/app.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script src="javascripts/list.js"></script>
+
 
 <?php //Define color of button used in site - Try replacing blue with red/white/black
 	$nice_button=" class=\"nice radius blue button\"";?>
