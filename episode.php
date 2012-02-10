@@ -1,4 +1,4 @@
-<?php include "includes/password_protect.php";?>
+
 <?php include "includes/abovecss.php";?>
 <head>
 <?php include "includes/css.php";?>
@@ -45,17 +45,21 @@ $array_of_dir = scandir($dir);
 $dir_array_size = sizeof($array_of_dir);
 //clears blank lines(folders) in array - change to 1 or 0 to see why.
 $x=2;
-
+$next=1;
 while ($x < ($dir_array_size-1) ){ //-1 is a hack to remove metadata folder
 
 
 //Define episode number
 	//Break apart episode grabbing out single digits
-	if(substr($array_of_dir[$x],-6,1) == "0"){
-	$episode_number = substr($array_of_dir[$x],-5,1);
-	}else 	{ 
-	$episode_number= substr($array_of_dir[$x],-6,2);
-			}
+//	if(substr($array_of_dir[$x],-6,1) == "0"){
+//	$episode_number = substr($array_of_dir[$x],-5,1);
+//	}else 	{ 
+//	$episode_number= substr($array_of_dir[$x],-6,2);
+//			}
+
+if  ($array_of_dir[$x] != ".." && $array_of_dir[$x] != "metadata" && $array_of_dir[$x] != "."){
+$episode_number=$next;
+$next=$next+1;
 //Define image path
 		$local_image_path="videos/".$series_name."/".$episode_array[2]."/metadata/".$episode_number.".jpg";
 //Check for local episode XML, grab if missing
@@ -112,6 +116,7 @@ if ($pre_xml_check[2]=="encoding=\"UTF-8\"")	{
 											//Print data to page
 											print "<div class=\"container\"><div class=\"row\"><div class=\"eight columns contained textbox centered\"><a href="."player"."."."php?filename=".$episode."/".$array_of_dir[$x]."&preview=$local_image_path".$nice_button.">"."Episode".$episode_number.  " - ".$episode_name."</a><br>";
 											print "<p>$episode_overview</p><br></div></div></div><br><br>";
+													}
 													}
 					
 	$x=$x+1;
