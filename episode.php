@@ -46,7 +46,7 @@ $dir_array_size = sizeof($array_of_dir);
 //clears blank lines(folders) in array - change to 1 or 0 to see why.
 $x=2;
 $next=1;
-while ($x < ($dir_array_size-1) ){ //-1 is a hack to remove metadata folder
+while ($x < ($dir_array_size) ){ 
 
 
 //Define episode number
