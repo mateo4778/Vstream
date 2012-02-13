@@ -14,4 +14,3 @@ everyone else scheming to enthral the people with digital “rights” managemen
 In the destruction of the monopolization of ideas, lies the seeds of another revolution,
 one that will bring wealth, freedom, and jobs.
 
-Rebels, may the force be with you. Always.
